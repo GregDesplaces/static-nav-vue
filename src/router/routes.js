@@ -20,6 +20,11 @@ export const routes = [
 			path: '/testimonial',
 			name: 'testimonial',
 			component: () => import('@/views/TestimonialView.vue')
+		},
+		{
+			path: '/:pathMatch(.*)*',
+			name: 'not-found',
+			component: () => import('@/views/NotFoundView.vue')
 		}
 	
 	]
