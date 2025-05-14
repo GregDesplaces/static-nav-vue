@@ -1,17 +1,17 @@
 <template>
 	<nav>
 		<ul class='mymenu'>
-			<li :class="{ active : (currentViewForActiveClass === 'home')}">
-				<a href="index.html" @click.prevent="changeViewOnClick('home')">Home</a>
+			<li>
+				<RouterLink to="/">Home</RouterLink>
 			</li>
-			<li :class="{ active : (currentViewForActiveClass === 'testimonial')}">
-				<a href="testimonials.html" @click.prevent="changeViewOnClick('testimonial')">Témoignages</a>
+			<li>
+				<RouterLink :to="{ name : 'testimonial' }">Témoignages</RouterLink>
 			</li>
-			<li :class="{ active : (currentViewForActiveClass === 'rate')}">
-				<a href="rates.html" @click.prevent="changeViewOnClick('rate')">Rates</a>
+			<li>
+				<RouterLink to="/rate">Rates</RouterLink>
 			</li>
-			<li :class="{ active : (currentViewForActiveClass === 'team')}">
-				<a href="team.html" @click.prevent="changeViewOnClick('team')">Teams</a>
+			<li>
+				<RouterLink to="/team">Teams</RouterLink>
 			</li>
 		</ul>
 
@@ -19,16 +19,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
-const emits = defineEmits(['changeView'])
-const currentViewForActiveClass = ref('home')
-
-const changeViewOnClick = (view) => {
-	emits('changeView', view);
-	currentViewForActiveClass.value = view
-}
-
 </script>
 
 <style>
@@ -65,7 +55,7 @@ ul.mymenu  {
   background-color: #8bc089;
 }
 
-.mymenu .active {
+.mymenu .router-link-active {
   background-color: #4CAF50;
 }
 </style>
